@@ -69,11 +69,13 @@ app.get('/', function (req, res) {
         col.count(function(err, count){
             if (err) {
                 console.log('Error running count. Message:\n'+err);
+            } else {
+                console.log('Visits: '+count);
             }
-            res.send('{ pageCount: '+count+' }');
+            res.sendFile('index.html');
         });
     } else {
-        res.send('{ error: "No db..." }')
+        res.sendFile('index.html');
     }
 });
 
